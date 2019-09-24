@@ -1,0 +1,19 @@
+{
+  "name": "@xura/bridge",
+  "version": "0.0.1",
+  "description": "Application to bridge together the platform",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack --config webpack.config.js"
+  },
+  "author": "Joe Badaczewski",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@xura/feed": "git+https://git@github.com/xura/feed.git"
+  },
+  "devDependencies": {
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
