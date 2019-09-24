@@ -2,7 +2,7 @@
   "name": "@xura/bridge",
   "version": "0.0.1",
   "description": "Application to bridge together the platform",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "npx webpack --config webpack.config.js"
   },
