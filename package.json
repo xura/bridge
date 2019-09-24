@@ -10,7 +10,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@xura/feed": "git+https://git@github.com/xura/feed.git"
+    "@xura/feed": "git+https://git@github.com/xura/feed.git",
+    "@xura/emporium": "git+https://git@github.com/xura/emporium.git"
   },
   "devDependencies": {
     "webpack": "^4.40.2",
