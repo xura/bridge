@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require('fs');
 
 module.exports = {
     mode: 'development',
@@ -16,6 +17,9 @@ module.exports = {
     module: {
         rules: [
             {
+                include: [
+                    fs.realpathSync(__dirname + '/node_modules/@xura/feed'),
+                ],
                 test: /\.elm$/,
                 exclude: [/elm-stuff/, /node_modules/],
                 use: {
