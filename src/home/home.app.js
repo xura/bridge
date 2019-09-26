@@ -1,5 +1,10 @@
 import singleSpaHtml from 'single-spa-html';
 import '@xura/feed';
+import emporium from '@xura/emporium';
+
+window.add = function() {
+  emporium.add();
+};
 
 const htmlLifecycles = singleSpaHtml({
     template: '<feed-div></feed-div>',

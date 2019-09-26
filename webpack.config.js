@@ -16,6 +16,16 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.elm$/,
+                exclude: [/elm-stuff/, /node_modules/],
+                use: {
+                    loader: 'elm-webpack-loader',
+                    options: {
+                        cwd: __dirname + '/node_modules/@xura/feed/elm'
+                    }
+                }
+            },
+            {
                 // Webpack style loader added so we can use materialize
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']

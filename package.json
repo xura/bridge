@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@xura/feed": "git+https://git@github.com/xura/feed.git",
+    "@xura/emporium": "git+https://git@github.com/xura/emporium.git",
     "single-spa": "^4.4.1",
-    "single-spa-html": "^1.0.1"
+    "single-spa-html": "^1.0.1",
+    "@teamthread/elm-web-components": "^1.0.0",
+    "elm-webpack-loader": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
