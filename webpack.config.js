@@ -17,11 +17,11 @@ module.exports = {
     module: {
         rules: [
             {
-                include: [
-                    fs.realpathSync(__dirname + '/node_modules/@xura/feed'),
-                ],
                 test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
+                exclude: function (modulePath) {
+                    return /node_modules/.test(modulePath) &&
+                        !/node_modules\/@xura\/feed/.test(modulePath);
+                },
                 use: {
                     loader: 'elm-webpack-loader',
                     options: {

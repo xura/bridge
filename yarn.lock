@@ -873,7 +873,7 @@
 
 "@xura/feed@git+https://git@github.com/xura/feed.git":
   version "0.0.1"
-  resolved "git+https://git@github.com/xura/feed.git#0fc91f81801f332286a65dde1e2139015af9e837"
+  resolved "git+https://git@github.com/xura/feed.git#2ffdfe1c4a480816289f5118723d82b958a61e37"
   dependencies:
     "@teamthread/elm-web-components" "^1.0.0"
     elm-webpack-loader "^6.0.0"
