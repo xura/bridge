@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const fs = require('fs');
 
 module.exports = {
@@ -28,21 +28,27 @@ module.exports = {
                         cwd: __dirname + '/node_modules/@xura/feed/elm'
                     }
                 }
-            },
-            {
-                // Webpack style loader added so we can use materialize
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
             }, {
-                test: /\.js$/,
-                exclude: [path.resolve(__dirname, 'node_modules')],
-                loader: 'babel-loader',
-            }, {
-                // This plugin will allow us to use AngularJS HTML templates
-                test: /\.html$/,
-                exclude: /node_modules/,
-                loader: 'html-loader',
-            },
+                test: /\.js|jsx$/,
+                exclude: function (modulePath) {
+                    return /node_modules/.test(modulePath) &&
+                        !/node_modules\/@xura/.test(modulePath);
+                },
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            '@babel/preset-react',
+                            {
+                                plugins: [
+                                    '@babel/plugin-proposal-class-properties'
+                                ]
+                            }
+                        ]
+                    }
+                },
+
+            }
         ],
     },
     node: {

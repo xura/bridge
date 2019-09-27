@@ -10,14 +10,20 @@
     "build": "webpack --config webpack.config.js -p"
   },
   "dependencies": {
-    "@xura/feed": "git+https://git@github.com/xura/feed.git",
+    "@teamthread/elm-web-components": "^1.0.0",
+    "@xura/components": "git+https://git@github.com/xura/components.git",
     "@xura/emporium": "git+https://git@github.com/xura/emporium.git",
+    "@xura/feed": "git+https://git@github.com/xura/feed.git",
+    "elm-webpack-loader": "^6.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "single-spa": "^4.4.1",
     "single-spa-html": "^1.0.1",
-    "@teamthread/elm-web-components": "^1.0.0",
-    "elm-webpack-loader": "^6.0.0"
+    "single-spa-react": "^2.10.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "@babel/core": "^7.6.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",

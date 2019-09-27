@@ -6,9 +6,16 @@ registerApplication(
     // loadingFunction
     () => import('./src/home/home.app.js'),
     // activityFunction
-    (location) => location.pathname === "" ||
-        location.pathname === "/" ||
-        location.pathname.startsWith('/home')
+    () => true
+);
+
+registerApplication(
+    // Name of our single-spa application
+    'navBar',
+    // loadingFunction
+    () => import('./src/navBar.app.js'),
+    // activityFunction
+    () => true
 );
 
 start();
