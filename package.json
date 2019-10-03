@@ -6,38 +6,22 @@
   "author": "Joe Badaczewski <joe307bad@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "concurrently --kill-others --kill-others-on-fail -p name --names \"config,common-deps\" \"npm run start:config\" \"npm run start:common-deps\"",
     "build": "webpack --config webpack.config.js -p",
-    "start:common-deps": "webpack-dev-server --config ./webpack.common-deps.config.js --port 8234",
-    "start:config": "webpack-dev-server --config ./webpack.config.config.js --port 8236"
+    "start:common-deps": "webpack-dev-server --config ./src/common-deps/webpack.common-deps.config.js --port 8234",
+    "start:config": "webpack-dev-server --config ./src/config/webpack.config.config.js --port 8236"
   },
-  "dependencies": {
-    "@teamthread/elm-web-components": "^1.0.0",
-    "@xura/components": "git+https://git@github.com/xura/components.git",
-    "@xura/emporium": "git+https://git@github.com/xura/emporium.git",
-    "@xura/feed": "git+https://git@github.com/xura/feed.git",
-    "elm-webpack-loader": "^6.0.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "single-spa": "^4.4.1",
-    "single-spa-html": "^1.0.1",
-    "single-spa-react": "^2.10.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
-    "html-loader": "^0.5.5",
-    "style-loader": "^1.0.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
+    "webpack-dev-server": "^3.8.1",
+    "concurrently": "4.0.1"
   }
 }
