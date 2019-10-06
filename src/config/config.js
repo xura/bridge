@@ -1,7 +1,9 @@
 import { registerApplication, start } from 'single-spa'
-import { emp } from '@xura/emporium';
+import { connect, data } from '@xura/data';
 
-emp.init();
+// @ts-ignore
+window.emp = await connect()
+    .then(connection => data(connection))
 
 registerApplication(
     // Name of our single-spa application

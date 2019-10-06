@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add --dev https://github.com/xura/emporium#0.0.1
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add --dev https://github.com/xura/data.git
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/rvm/bin:/Users/joe307bad/Library/Android/sdk/emulator:/Users/joe307bad/Library/Android/sdk/tools:/Users/joe307bad/Library/Android/sdk/tools/bin:/Users/joe307bad/Library/Android/sdk/platform-tools
@@ -35,13 +35,14 @@ npm manifest:
       "@babel/core": "^7.6.2",
       "@babel/plugin-syntax-dynamic-import": "^7.2.0",
       "@babel/preset-env": "^7.6.2",
+      "@xura/emporium": "https://github.com/xura/emporium#0.0.1",
       "babel-loader": "^8.0.6",
       "clean-webpack-plugin": "^3.0.0",
+      "concurrently": "4.0.1",
       "copy-webpack-plugin": "^5.0.4",
       "webpack": "^4.41.0",
       "webpack-cli": "^3.3.9",
-      "webpack-dev-server": "^3.8.1",
-      "concurrently": "4.0.1"
+      "webpack-dev-server": "^3.8.1"
     }
   }
 
@@ -910,6 +911,10 @@ Lockfile:
     version "4.2.2"
     resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
     integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
+  
+  "@xura/emporium@https://github.com/xura/emporium#0.0.1":
+    version "0.0.1"
+    resolved "https://github.com/xura/emporium#5e6d14ad983c99b599dc5ea6fb5493537bfe2814"
   
   abbrev@1:
     version "1.1.1"
