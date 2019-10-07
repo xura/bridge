@@ -1,6 +1,7 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: path.resolve(__dirname, 'common-deps.js'),
@@ -30,8 +31,12 @@ module.exports = {
             cleanAfterEveryBuildPatterns: ['build/common-deps/']
         }),
         new CopyWebpackPlugin([
-            { from: path.resolve(__dirname, 'common-deps.js') }
+            { from: path.resolve(__dirname, 'common-deps.js') },
+            { from: 'node_modules/sql.js/dist/sql-wasm.wasm' }
         ]),
+        new webpack.NormalModuleReplacementPlugin(/typeorm$/, function (result) {
+            result.request = result.request.replace(/typeorm/, "typeorm/browser");
+        })
     ],
     module: {
         rules: [

@@ -860,13 +860,15 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@xura/data@https://github.com/xura/data.git":
+"@xura/data@https://github.com/xura/data.git#0.0.3":
   version "0.0.1"
-  resolved "https://github.com/xura/data.git#aa5ffb37ec71feaf2db86f4b0fe32302fd9ee0cc"
+  resolved "https://github.com/xura/data.git#7b1a8fb8e5dc4024d534c584d9bd141d33166f89"
+  dependencies:
+    "@xura/emporium" "https://github.com/xura/emporium.git#0.0.3"
 
-"@xura/emporium@https://github.com/xura/emporium#0.0.1":
+"@xura/emporium@https://github.com/xura/emporium.git#0.0.3":
   version "0.0.1"
-  resolved "https://github.com/xura/emporium#5e6d14ad983c99b599dc5ea6fb5493537bfe2814"
+  resolved "https://github.com/xura/emporium.git#7f94ccb82914a0aa5b151039c8ca8109da0bd672"
 
 abbrev@1:
   version "1.1.1"
@@ -4411,6 +4413,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   integrity sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
   dependencies:
     extend-shallow "^3.0.0"
+
+sql.js@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/sql.js/-/sql.js-1.0.0.tgz#5d65dd0fa84081f094ba66569c4f34fb99433d91"
+  integrity sha512-fl/cQu8hDbu9bXNXTrmwwtS2wvHttWrXS9fzINVtedOBOJJWMjwSADR1aQ+DKmCdGNF4jrg/15AedJ5kcrWRJA==
 
 ssri@^6.0.1:
   version "6.0.1"

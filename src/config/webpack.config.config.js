@@ -41,6 +41,7 @@ module.exports = {
     ],
     devtool: 'source-map',
     externals: [
-        /^single-spa$/
+        /^single-spa$/,
+        /^@xura\/data$/
     ],
 };

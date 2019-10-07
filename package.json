@@ -11,7 +11,9 @@
     "start:common-deps": "webpack-dev-server --config ./src/common-deps/webpack.common-deps.config.js --port 8234",
     "start:config": "webpack-dev-server --config ./src/config/webpack.config.config.js --port 8236"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sql.js": "1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
