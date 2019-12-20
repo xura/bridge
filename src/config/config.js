@@ -8,6 +8,11 @@ connect('').then(_ => {
         () => SystemJS.import('@xura/feed'),
         () => true
     );
+    registerApplication(
+        'components',
+        () => SystemJS.import('@xura/components'),
+        () => true
+    );
 });
 
 start();
