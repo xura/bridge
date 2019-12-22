@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 window.SystemJS = window.System
 
 function insertNewImportMap(newMapJSON) {
