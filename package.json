@@ -6,7 +6,8 @@
   "author": "Joe Badaczewski <joe307bad@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently --kill-others --kill-others-on-fail -p name --names \"config,common-deps,data,feed,emporium,components\" \"npm run start:config\" \"npm run start:common-deps\" \"npm run start --prefix ../data\" \"npm run start --prefix ../feed\" \"npm run start --prefix ../emporium\" \"npm run start --prefix ../components\"",
+    "kill": "lsof -ti :8230-9000 | xargs kill -9",
+    "start": "yarn kill && concurrently --kill-others --kill-others-on-fail -p name --names \"config,common-deps,data,feed,emporium,components\" \"npm run start:config\" \"npm run start:common-deps\" \"npm run start --prefix ../data\" \"npm run start --prefix ../feed\" \"npm run start --prefix ../emporium\" \"npm run start --prefix ../components-next\"",
     "build": "webpack --config webpack.config.js -p",
     "start:common-deps": "webpack-dev-server --config ./src/common-deps/webpack.common-deps.config.js --port 8234",
     "start:config": "webpack-dev-server --config ./src/config/webpack.config.config.js --port 8236"
