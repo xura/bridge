@@ -10,7 +10,7 @@ const server = new WebpackDevServer(webpack(base('components', path.resolve(__di
         "Access-Control-Allow-Origin": "*",
     }
 });
-
+// run with concurrently https://www.npmjs.com/package/concurrently#programmatic-usage
 server.listen(PORT, 'localhost', function (err) {
     if (err) {
         console.log(err);
