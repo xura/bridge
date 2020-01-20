@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js install
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add -D @types/webpack-dev-server
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/rvm/bin:/Users/joe307bad/Library/Android/sdk/emulator:/Users/joe307bad/Library/Android/sdk/tools:/Users/joe307bad/Library/Android/sdk/tools/bin:/Users/joe307bad/Library/Android/sdk/platform-tools
+  /Users/joe307bad/.cabal/bin:/Users/joe307bad/.ghcup/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/rvm/bin:/Users/joe307bad/Library/Android/sdk/emulator:/Users/joe307bad/Library/Android/sdk/tools:/Users/joe307bad/Library/Android/sdk/tools/bin:/Users/joe307bad/Library/Android/sdk/platform-tools:/Users/joe307bad/.local/bin
 
 Yarn version: 
   1.17.3
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/Users/joe307bad/Source/xura/bridge/node_modules/.bin/acorn'
+  Error: EACCES: permission denied, open '/Users/joe307bad/Source/xura/bridge/yarn.lock'
 
 npm manifest: 
   {
@@ -25,7 +25,8 @@ npm manifest:
     "author": "Joe Badaczewski <joe307bad@gmail.com>",
     "license": "MIT",
     "scripts": {
-      "start": "concurrently --kill-others --kill-others-on-fail -p name --names \"config,common-deps\" \"npm run start:config\" \"npm run start:common-deps\"",
+      "kill": "lsof -ti :8230-9000 | xargs kill -9",
+      "start": "yarn kill && concurrently --kill-others --kill-others-on-fail -p name --names \"config,common-deps,data,feed,emporium,components\" \"npm run start:config\" \"npm run start:common-deps\" \"npm run start --prefix ../data\" \"npm run start --prefix ../feed\" \"npm run start --prefix ../emporium\" \"npm run start --prefix ../components-next\"",
       "build": "webpack --config webpack.config.js -p",
       "start:common-deps": "webpack-dev-server --config ./src/common-deps/webpack.common-deps.config.js --port 8234",
       "start:config": "webpack-dev-server --config ./src/config/webpack.config.config.js --port 8236"
@@ -42,6 +43,7 @@ npm manifest:
       "clean-webpack-plugin": "^3.0.0",
       "concurrently": "4.0.1",
       "copy-webpack-plugin": "^5.0.4",
+      "reflect-metadata": "^0.1.13",
       "webpack": "^4.41.0",
       "webpack-cli": "^3.3.9",
       "webpack-dev-server": "^3.8.1"
@@ -3989,6 +3991,11 @@ Lockfile:
       micromatch "^3.1.10"
       readable-stream "^2.0.2"
   
+  reflect-metadata@^0.1.13:
+    version "0.1.13"
+    resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
+    integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
+  
   regenerate-unicode-properties@^8.1.0:
     version "8.1.0"
     resolved "https://registry.yarnpkg.com/regenerate-unicode-properties/-/regenerate-unicode-properties-8.1.0.tgz#ef51e0f0ea4ad424b77bf7cb41f3e015c70a3f0e"
@@ -4467,6 +4474,11 @@ Lockfile:
     integrity sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
     dependencies:
       extend-shallow "^3.0.0"
+  
+  sql.js@1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/sql.js/-/sql.js-1.0.0.tgz#5d65dd0fa84081f094ba66569c4f34fb99433d91"
+    integrity sha512-fl/cQu8hDbu9bXNXTrmwwtS2wvHttWrXS9fzINVtedOBOJJWMjwSADR1aQ+DKmCdGNF4jrg/15AedJ5kcrWRJA==
   
   ssri@^6.0.1:
     version "6.0.1"
