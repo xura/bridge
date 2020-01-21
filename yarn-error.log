@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/jbadaczewski/.nodenv/versions/10.16.0/bin/node /Users/jbadaczewski/.nodenv/versions/10.16.0/bin/yarn add -D @babel/transform-es2015-classes
+  /Users/jbadaczewski/.nodenv/versions/10.16.0/bin/node /Users/jbadaczewski/.nodenv/versions/10.16.0/bin/yarn add -D @babel/proposal-decorators
 
 PATH: 
   /Users/jbadaczewski/.nodenv/versions/10.16.0/bin:/usr/local/Cellar/nodenv/1.3.0/libexec:/Users/jbadaczewski/.cabal/bin:/Users/jbadaczewski/.ghcup/bin:/Users/jbadaczewski/.sdkman/candidates/java/current/bin:/Users/jbadaczewski/.nodenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jbadaczewski/.local/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel%2ftransform-es2015-classes: Not found
+  Error: https://registry.yarnpkg.com/@babel%2fproposal-decorators: Not found
       at Request.params.callback [as _callback] (/Users/jbadaczewski/.nodenv/versions/10.16.0/lib/node_modules/yarn/lib/cli.js:66830:18)
       at Request.self.callback (/Users/jbadaczewski/.nodenv/versions/10.16.0/lib/node_modules/yarn/lib/cli.js:140464:22)
       at Request.emit (events.js:198:13)
@@ -46,6 +46,11 @@ npm manifest:
       "sql.js": "1.0.0",
       "systemjs": "^6.1.9"
     },
+    "targets": {
+      "browsers": [
+        "> 1%"
+      ]
+    },
     "devDependencies": {
       "@babel/core": "^7.6.2",
       "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -61,6 +66,7 @@ npm manifest:
       "@types/html-webpack-plugin": "^3.2.1",
       "@types/systemjs": "^6.1.0",
       "@types/webpack-dev-server": "^3.9.0",
+      "@webcomponents/webcomponentsjs": "^2.4.1",
       "@xura/data": "https://github.com/xura/data.git#0.0.3",
       "@xura/emporium": "https://github.com/xura/emporium.git#0.0.14",
       "async": "^3.1.0",
@@ -68,6 +74,7 @@ npm manifest:
       "babel-plugin-transform-custom-element-classes": "^0.1.0",
       "babel-plugin-transform-typescript-metadata": "^0.2.2",
       "babel-preset-es2017": "^6.24.1",
+      "ce-decorators": "^2.6.1",
       "clean-webpack-plugin": "^3.0.0",
       "concurrently": "4.0.1",
       "copy-webpack-plugin": "^5.1.1",
@@ -1472,6 +1479,11 @@ Lockfile:
       "@webassemblyjs/wast-parser" "1.8.5"
       "@xtuc/long" "4.2.2"
   
+  "@webcomponents/webcomponentsjs@^2.4.1":
+    version "2.4.1"
+    resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.4.1.tgz#7baadec56ed2fd79b94ddfd509132d8c0c295c5c"
+    integrity sha512-7jxBb+KoWncKb/JGFyTY40PjV4yRx2zd35ZLuvRP+6WndJDL7X32ZIZ7bN3sSQIl+NzJkCo7chfXJyzn+6WZaQ==
+  
   "@xtuc/ieee754@^1.2.0":
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
@@ -2221,6 +2233,13 @@ Lockfile:
     version "1.0.30000999"
     resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000999.tgz#427253a69ad7bea4aa8d8345687b8eec51ca0e43"
     integrity sha512-1CUyKyecPeksKwXZvYw0tEoaMCo/RwBlXmEtN5vVnabvO0KPd9RQLcaAuR9/1F+KDMv6esmOFWlsXuzDk+8rxg==
+  
+  ce-decorators@^2.6.1:
+    version "2.6.1"
+    resolved "https://registry.yarnpkg.com/ce-decorators/-/ce-decorators-2.6.1.tgz#aa2ee6ad6094ce728a2d5b5ac2eab87f97ed36bf"
+    integrity sha512-rAroZZYH1XWiiumgyrK2imK+Mce3b1VpkhihW7UTe2Z1M7C/AmkUSG2hy4SXb+9ubM2KakSnDRnOtsfkaL/U0w==
+    dependencies:
+      lit-html ">=1.0.0"
   
   chalk@2.4.1:
     version "2.4.1"
@@ -4372,6 +4391,11 @@ Lockfile:
     integrity sha512-avPEb8P8EGnwXKClwsNUgryVjllcRqtMYa49NTsbQagYuT1DcXnl1915oxWjoyGrXR6zH/Y0Zc96xWsPcoDKeA==
     dependencies:
       invert-kv "^2.0.0"
+  
+  lit-html@>=1.0.0:
+    version "1.1.2"
+    resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.1.2.tgz#2e3560a7075210243649c888ad738eaf0daa8374"
+    integrity sha512-FFlUMKHKi+qG1x1iHNZ1hrtc/zHmfYTyrSvs3/wBTvaNtpZjOZGWzU7efGYVpgp6KvWeKF6ql9/KsCq6Z/mEDA==
   
   load-json-file@^1.0.0:
     version "1.1.0"

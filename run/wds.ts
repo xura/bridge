@@ -7,10 +7,11 @@ export default (
     project: string,
     entry: string,
     extra: Configuration = {},
-    loaders: RuleSetRule[] = []
+    loaders: RuleSetRule[] = [],
+    legacyDecorators = true
 ) => {
 
-    const baseConfig = base(project, path.resolve(__dirname, entry));
+    const baseConfig = base(project, path.resolve(__dirname, entry), legacyDecorators);
 
     const config = webpack({
         ...baseConfig,
