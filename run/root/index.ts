@@ -1,4 +1,4 @@
-import start from '../wds';
+import { start } from '../wds';
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';

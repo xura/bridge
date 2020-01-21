@@ -3,13 +3,13 @@ import WebpackDevServer from 'webpack-dev-server';
 import base from './build';
 import * as path from 'path';
 
-export default (
+export const start = (
     project: string,
     entry: string,
     extra: Configuration = {},
     loaders: RuleSetRule[] = [],
     legacyDecorators = true
-) => {
+): void => {
 
     const baseConfig = base(project, path.resolve(__dirname, entry), legacyDecorators);
 

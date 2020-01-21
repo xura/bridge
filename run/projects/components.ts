@@ -1,11 +1,10 @@
 import start from '../wds';
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 import * as path from 'path';
+import { Configuration } from 'webpack';
 
-// TODO is there a way to not have to use a completed different webpack config?
-// ts-loader works, but babel-loader doesnt
-// but here we can see babel-loader working https://github.com/mzeiher/ce-decorators/blob/master/webpack.config.js
-start('components', '../../components/src/index.ts', {
+// @ts-ignore
+const config: Configuration = {
     entry: path.resolve(__dirname, '../../../components/src/index.ts'),
     output: {
         filename: 'components.js',
@@ -41,4 +40,9 @@ start('components', '../../components/src/index.ts', {
         }),
     ],
     devtool: 'source-map'
-}, [], false)
+};
+
+// TODO is there a way to not have to use a completed different webpack config?
+// ts-loader works, but babel-loader doesnt
+// but here we can see babel-loader working https://github.com/mzeiher/ce-decorators/blob/master/webpack.config.js
+start('components', '../../components/src/index.ts', {}, [], false)
