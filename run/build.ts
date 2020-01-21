@@ -3,10 +3,6 @@ import * as path from 'path';
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-interface WebpackEnvironment {
-    NODE_ENV: string;
-}
-
 export default (name: string, entry: string): Configuration => ({
     entry,
     output: {
