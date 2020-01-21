@@ -28,10 +28,12 @@ export default (name: string, entry: string): Configuration => ({
                     loader: "babel-loader",
                     options: {
                         plugins: [
+                            'babel-plugin-transform-custom-element-classes',
                             'babel-plugin-transform-typescript-metadata',
                             ['@babel/plugin-proposal-decorators', { legacy: true }],
-                            '@babel/plugin-proposal-class-properties',
-                            "@babel/plugin-proposal-optional-chaining"
+                            ["@babel/plugin-proposal-class-properties", { "loose": true }],
+                            "@babel/plugin-proposal-optional-chaining",
+                            ["@babel/plugin-transform-classes", { "loose": true }]
                         ],
                         presets: [
                             '@babel/preset-env',
@@ -52,6 +54,6 @@ export default (name: string, entry: string): Configuration => ({
         /^@xura\/emporium$/,
         /^@xura\/components$/,
         /^@xura\/data$/,
-        /^systemjs$/
+        /^@xura\/feed$/
     ]
 });
