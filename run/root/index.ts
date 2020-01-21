@@ -8,4 +8,4 @@ const config: Configuration = {
     }
 }
 
-start(process.argv[2], 'root', './index.ts', config)
+start('root', './root/entry.ts', config)
