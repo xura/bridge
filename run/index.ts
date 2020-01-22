@@ -6,4 +6,4 @@ const wdsCommands = registry.map(project => ({
     name: project[0]?.toString() || ''
 }));
 
-concurrently([...wdsCommands]);
+concurrently(wdsCommands);

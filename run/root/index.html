@@ -27,7 +27,11 @@
 
     <!-- Load the application -->
     <script>
-      System.import ('@xura/root')
+      System
+        .import ('@xura/root')
+        .then(_ => {
+          debugger;
+        })
       System.import ('@xura/components')
     </script>
 

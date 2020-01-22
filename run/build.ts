@@ -16,6 +16,7 @@ export type BuildConfiguration = {
     babelPluginOptions?: PluginOptions;
     loaders?: RuleSetRule[];
     webpackConfig?: Configuration;
+    libraryTarget?: 'amd' | 'umd'
 }
 
 export default (buildConfig: BuildConfiguration): Configuration => {
@@ -48,7 +49,7 @@ export default (buildConfig: BuildConfiguration): Configuration => {
         output: {
             filename: `${buildConfig.name}.js`,
             library: `${buildConfig.name}`,
-            libraryTarget: 'amd',
+            libraryTarget: buildConfig.libraryTarget || "amd",
             path: path.resolve(__dirname, `build/${buildConfig.name}`),
         },
         mode: 'development',
@@ -61,6 +62,7 @@ export default (buildConfig: BuildConfiguration): Configuration => {
         },
         module: {
             rules: [
+                { parser: { System: false } },
                 {
                     test: /(\.tsx?|\.js)$/,
                     exclude: /node_modules/,
