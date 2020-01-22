@@ -1,3 +1,6 @@
 import start from '../wds';
 
-start('data', '../../data/src/index.ts')
+start({
+    name: 'data',
+    entry: '../../data/src/index.ts'
+})

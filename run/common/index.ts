@@ -2,7 +2,7 @@ import start from '../wds';
 import { Configuration } from 'webpack';
 import * as path from 'path';
 
-const config: Configuration = {
+const webpackConfig: Configuration = {
     output: {
         filename: 'common.js',
         path: path.resolve(__dirname, 'build/common'),
@@ -14,4 +14,8 @@ const config: Configuration = {
     }
 }
 
-start('common', './common/entry.ts', config)
+start({
+    name: 'commin',
+    entry: './common/entry.ts',
+    webpackConfig
+})

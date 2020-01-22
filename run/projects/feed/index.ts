@@ -1,7 +1,7 @@
 import start from '../../wds';
 import * as path from 'path';
 
-const loader = [
+const loaders = [
     {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
@@ -18,4 +18,8 @@ const loader = [
     }
 ]
 
-start('feed', './projects/feed/entry.js', {}, loader)
+start({
+    name: 'feed',
+    entry: './projects/feed/entry.js',
+    loaders
+})

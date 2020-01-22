@@ -1,26 +1,8 @@
-import webpack, { Configuration, RuleSetRule } from 'webpack';
+import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import base from './build';
-import * as path from 'path';
+import base, { BuildConfiguration } from './build';
 
-export const start = (
-    project: string,
-    entry: string,
-    extra: Configuration = {},
-    loaders: RuleSetRule[] = [],
-    legacyDecorators = true
-): void => {
-
-    const baseConfig = base(project, path.resolve(__dirname, entry), legacyDecorators);
-
-    const config = webpack({
-        ...baseConfig,
-        module: {
-            ...baseConfig.module,
-            rules: baseConfig.module?.rules.concat(loaders) || []
-        },
-        ...extra
-    });
+export default (buildConfig: BuildConfiguration): void => {
 
     const wdsConfig = {
         headers: {
@@ -28,13 +10,9 @@ export const start = (
         }
     };
 
-    const server = new WebpackDevServer(config, wdsConfig);
-    const port = process.argv[2];
+    new WebpackDevServer(
+        webpack(base(buildConfig)),
+        wdsConfig
+    ).listen(Number(process.argv[2]));;
 
-    server.listen(Number(port), 'localhost', function (err) {
-        if (err) {
-            console.log(err);
-        }
-        console.log('WebpackDevServer listening at localhost:', port);
-    })
 };
