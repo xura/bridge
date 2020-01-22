@@ -15,7 +15,7 @@ const webpackConfig: Configuration = {
 }
 
 start({
-    name: 'commin',
+    name: 'common',
     entry: './common/entry.ts',
     webpackConfig
 })
