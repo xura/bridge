@@ -2,9 +2,9 @@ import 'reflect-metadata'
 import { registerApplication, start } from 'single-spa'
 import { connect, data } from '@xura/data';
 
-debugger;
 connect().then(_ => {
-    debugger;
+    // @ts-ignore
+    window.d = data;
     registerApplication(
         'home',
         // @ts-ignore

@@ -7,6 +7,13 @@ const webpackPlugins = [
     })
 ]
 
+const loaders = [
+    {
+        test: /\.ts$/,
+        loader: 'ts-loader'
+    }
+]
+
 start({
     name: 'emporium',
     entry: '../../emporium/src/index.ts',
@@ -15,5 +22,6 @@ start({
     babelPluginOptions: {
         customElementClasses: false,
         typescriptMetaData: false
-    }
+    },
+    loaders
 })
