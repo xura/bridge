@@ -1,7 +1,6 @@
 import start from '../wds';
 import { Configuration } from 'webpack';
-// import HtmlWebpackPlugin from 'html-webpack-plugin';
-// import * as path from 'path';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const webpackConfig: Configuration = {
     node: {
@@ -10,16 +9,16 @@ const webpackConfig: Configuration = {
     },
 }
 
-// const webpackPlugins = [
-//     new HtmlWebpackPlugin({
-//         template: path.resolve(__dirname, "./index.html"),
-//         title: "Xura | Bridge"
-//     })
-// ]
+const webpackPlugins = [
+    new CopyWebpackPlugin([
+        { from: 'node_modules/sql.js/dist/sql-wasm.js' },
+        { from: 'node_modules/sql.js/dist/sql-wasm.wasm' }
+    ])
+]
 
 start({
     name: 'root',
     entry: './root/entry.ts',
     webpackConfig,
-    // webpackPlugins
+    webpackPlugins
 })
