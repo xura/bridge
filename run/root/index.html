@@ -8,10 +8,11 @@
   </head>
 
   <body>
-    <script src="/sql-wasm.js"></script>
+    <script src="http://localhost:3000/run/root/sql-wasm.js"></script>
     <script>
       initSqlJs();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reflect-metadata/0.1.13/Reflect.min.js"></script>
     <script src='https://unpkg.com/systemjs@4.1.0/dist/system.js'></script>
     <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/amd.js'></script>
     <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/named-exports.js'></script>
@@ -24,24 +25,19 @@
 
     <!-- Load the common deps-->
     <script src="http://localhost:3001/common.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
 
     <!-- Load the application -->
     <script>
-      System
-        .import ('@xura/root')
-        .then(_ => {
-          debugger;
-        })
+      System.import ('@xura/root')
       System.import ('@xura/components')
     </script>
-
-    <script></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </body>
   <div id='home'></div>
-  <div id='components'></div>
-  <div>
-  Users323: <span id="user"></span>
-  </div>
   <xura-navigation title="Xura | Data"></xura-navigation>
 </html>

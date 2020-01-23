@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { registerApplication, start } from 'single-spa'
 import { connect, data } from '@xura/data';
 
@@ -7,7 +8,7 @@ connect().then(_ => {
     registerApplication(
         'home',
         // @ts-ignore
-        () => SystemJS.import('@xura/feed'),
+        () => System.import('@xura/feed'),
         () => true
     );
 });

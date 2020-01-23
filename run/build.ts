@@ -96,7 +96,8 @@ export default (buildConfig: BuildConfiguration): Configuration => {
             /^@xura\/emporium$/,
             /^@xura\/components$/,
             /^@xura\/data$/,
-            /^@xura\/feed$/
+            /^@xura\/feed$/,
+            /^single-spa$/,
         ],
         ...buildConfig.webpackConfig
     }
