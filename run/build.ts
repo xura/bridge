@@ -7,6 +7,7 @@ export type PluginOptions = {
     legacyDecorators?: boolean;
     customElementClasses?: boolean;
     transformClasses?: boolean;
+    typescriptMetaData?: boolean;
 }
 
 export type BuildConfiguration = {
@@ -35,8 +36,12 @@ export default (buildConfig: BuildConfiguration): Configuration => {
         ? null
         : ["@babel/plugin-transform-classes", { "loose": true }];
 
+    const typescriptMetadataPlugin = buildConfig.babelPluginOptions?.typescriptMetaData === false
+        ? null
+        : 'babel-plugin-transform-typescript-metadata';
+
     const plugins = [
-        'babel-plugin-transform-typescript-metadata',
+        typescriptMetadataPlugin,
         "@babel/plugin-proposal-optional-chaining",
         decoratorPlugin,
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
