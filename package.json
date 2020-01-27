@@ -37,6 +37,7 @@
     "@types/concurrently": "^4.1.0",
     "@types/copy-webpack-plugin": "^5.0.0",
     "@types/html-webpack-plugin": "^3.2.1",
+    "@types/node": "^13.5.0",
     "@types/systemjs": "^6.1.0",
     "@types/webpack-dev-server": "^3.9.0",
     "@webcomponents/webcomponentsjs": "^2.4.1",
