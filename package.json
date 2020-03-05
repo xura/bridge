@@ -10,7 +10,8 @@
     "start": "yarn kill && concurrently --kill-others --kill-others-on-fail -p name --names \"config,common-deps,data,feed,emporium,components\" \"npm run start:config\" \"npm run start:common-deps\" \"npm run start --prefix ../data\" \"npm run start --prefix ../feed\" \"npm run start --prefix ../emporium\" \"npm run start --prefix ../components-next\"",
     "build": "webpack --config webpack.config.js -p",
     "start:common-deps": "webpack-dev-server --config ./src/common-deps/webpack.common-deps.config.js --port 8234",
-    "start:config": "webpack-dev-server --config ./src/config/webpack.config.config.js --port 8236"
+    "start:config": "webpack-dev-server --config ./src/config/webpack.config.config.js --port 8236",
+    "mf": "babel run/module-federation -d dist --source-maps"
   },
   "dependencies": {
     "@types/webpack": "^4.41.2",
@@ -23,7 +24,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.6.2",
+    "@babel/node": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/plugin-proposal-optional-chaining": "^7.8.3",
@@ -48,6 +51,7 @@
     "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.2.2",
     "babel-preset-es2017": "^6.24.1",
+    "babel-watch": "^7.0.0",
     "ce-decorators": "^2.6.1",
     "clean-webpack-plugin": "^3.0.0",
     "concurrently": "4.0.1",
@@ -62,10 +66,11 @@
     "single-spa": "^4.4.2",
     "single-spa-html": "^1.1.1",
     "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
     "tsyringe": "^4.0.1",
     "typeorm": "^0.2.22",
     "typescript": "^3.7.5",
-    "webpack": "^4.41.0",
+    "webpack": "git://github.com/webpack/webpack.git#dev-1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
   }
