@@ -1,6 +1,6 @@
-import start from '../wds';
+import { BuildConfiguration } from '../../build';
 
-start({
+const config: BuildConfiguration = {
     name: 'components',
     entry: '../../components/src/index.ts',
     babelPluginOptions: {
@@ -8,4 +8,6 @@ start({
         legacyDecorators: false,
         transformClasses: false
     }
-})
+}
+
+export default config;

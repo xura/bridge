@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import base, { BuildConfiguration } from './build';
+import buildWebpackConfig, { BuildConfiguration } from './build';
 
-export default (buildConfig: BuildConfiguration): void => {
+export default (buildConfig: BuildConfiguration, portNumber?: number): void => {
 
     const wdsConfig = {
         headers: {
@@ -11,8 +11,8 @@ export default (buildConfig: BuildConfiguration): void => {
     };
 
     new WebpackDevServer(
-        webpack(base(buildConfig)),
+        webpack(buildWebpackConfig(buildConfig)),
         wdsConfig
-    ).listen(Number(process.argv[2]));;
+    ).listen(Number(portNumber || process.argv[2]));;
 
 };
