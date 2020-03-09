@@ -1,14 +1,21 @@
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+import * as path from 'path';
 
-module.exports = () => ({
+module.exports = {
   entry: path.resolve(__dirname, "src/index.ts"),
-  output: {
-    filename: "mf.js",
-    libraryTarget: 'umd',
-    path: path.resolve(__dirname, "dist")
-  },
+  cache: false,
+  mode: "development",
   devtool: "source-map",
+  optimization: {
+    minimize: false
+  },
+  output: {
+    publicPath: "http://localhost:3001/"
+  },
+  resolve: {
+    extensions: [".jsx", ".js", ".json", ".ts", ".tsx"]
+  },
   module: {
     rules: [
       {
@@ -26,15 +33,19 @@ module.exports = () => ({
       }
     ]
   },
-  devServer: {
-    historyApiFallback: true,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
-    disableHostCheck: true
-  },
   plugins: [
-    new CleanWebpackPlugin()
-  ],
-  externals: ["single-spa"]
-});
+    new ModuleFederationPlugin({
+      name: "mf",
+      library: { type: "var", name: "mf" },
+      filename: "mf.js",
+      remotes: {
+        madrox: "madrox",
+        saturn: "saturn"
+      },
+      shared: ["single-spa-react"]
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html"
+    })
+  ]
+};

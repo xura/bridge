@@ -9,9 +9,12 @@ import start from '../wds';
     const moduleFederationPlugin: Plugin[] = [
         new ModuleFederationPlugin({
             name: "components",
-            library: { type: "var", name: "components" },
+            library: { type: "umd", name: "components" },
             exposes: {
                 Components: "../components/src/index.ts"
+            },
+            remotes: {
+                mf: "mf"
             }
             // shared: ["react", "react-dom", "@material-ui/core", "react-router-dom"]
         })
