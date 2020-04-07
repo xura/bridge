@@ -16,7 +16,7 @@ const mason = {
 };
 
 new Promise(resolve => {
-    exec(`generate-graphql-client -s ${relPath("../../mason/schema.gql")} -o ${relPath("../../emporium/mason")}`, { async: true }, () => resolve());
+    exec(`zeus ${relPath("../../mason/schema.gql")} ${relPath("../../emporium")}`, { async: true }, () => resolve());
 }).then(() =>
     concurrently([...wdsCommands, mason])
 );
