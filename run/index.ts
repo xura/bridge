@@ -16,7 +16,7 @@ const mason = {
 };
 
 new Promise(resolve => {
-    exec(`zeus ${relPath("../../mason/schema.gql")} ${relPath("../../emporium")}`, { async: true }, () => resolve());
+    exec(`zeus ${relPath("../../mason/schema.gql")} ${relPath("../../emporium")} --ts`, { async: true }, () => resolve());
 }).then(() =>
     concurrently([...wdsCommands, mason])
 );
