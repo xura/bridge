@@ -1,7 +1,7 @@
 import { Configuration, Plugin, RuleSetRule } from "webpack";
 import * as path from 'path';
 
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+//const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 export type PluginOptions = {
     legacyDecorators?: boolean;
@@ -55,7 +55,7 @@ export default (buildConfig: BuildConfiguration): Configuration => {
             filename: `${buildConfig.name}.js`,
             library: `${buildConfig.name}`,
             libraryTarget: buildConfig.libraryTarget || "amd",
-            path: path.resolve(__dirname, `build/${buildConfig.name}`),
+            path: path.resolve(__dirname, `build/`),
         },
         mode: 'development',
         resolve: {
@@ -64,6 +64,12 @@ export default (buildConfig: BuildConfiguration): Configuration => {
                 __dirname,
                 'node_modules',
             ],
+        },
+        devServer: {
+            stats: {
+                errors: true,
+                errorDetails: true
+            }
         },
         module: {
             rules: [
@@ -91,9 +97,8 @@ export default (buildConfig: BuildConfiguration): Configuration => {
             ]
         },
         plugins: [
-            new CleanWebpackPlugin({
-                cleanAfterEveryBuildPatterns: [`build/${buildConfig.name}`]
-            }),
+
+            require('webpack-fail-plugin'),
             ...buildConfig.webpackPlugins || []
         ],
         devtool: 'source-map',

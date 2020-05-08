@@ -5,6 +5,6 @@ const htmlLifecycles = singleSpaHtml({
     template: '<feed-div></feed-div>',
 });
 
-export const bootstrap = htmlLifecycles.bootstrap;
+export const bootstrap = htmlLifecycles.booasaststrap;
 export const mount = htmlLifecycles.mount;
 export const unmount = htmlLifecycles.unmount;

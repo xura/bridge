@@ -1,0 +1,38 @@
+{
+    "devServer": {
+        "port": 3000,
+        "dir": "./run/build"
+    },
+    "projects": [
+        {
+            "name": "data",
+            "runner": "webpack",
+            "command": "./run/projects/data"
+        },
+        {
+            "name": "components",
+            "runner": "webpack",
+            "command": "./run/projects/components"
+        },
+        {
+            "name": "common",
+            "runner": "webpack",
+            "command": "./run/projects/common"
+        },
+        {
+            "name": "emporium",
+            "runner": "webpack",
+            "command": "./run/projects/emporium"
+        },
+        {
+            "name": "feed",
+            "runner": "webpack",
+            "command": "./run/projects/feed"
+        },
+        {
+            "name": "root",
+            "runner": "webpack",
+            "command": "./run/projects/root"
+        }
+    ]
+}

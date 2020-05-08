@@ -15,6 +15,58 @@
       ],
       "cwd": "${workspaceRoot}",
       "console": "integratedTerminal",
+    },
+    {
+      "name": "Components",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/run/projects/components.ts",
+        "3001"
+      ],
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+    },
+    {
+      "name": "Data",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/run/projects/data.ts",
+        "3001"
+      ],
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+    },
+    {
+      "name": "Common",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/run/projects/common/index.ts",
+        "3001"
+      ],
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+    },
+    {
+      "name": "Feed",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/run/projects/feed/index.ts",
+        "3001"
+      ],
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
     }
   ]
 }

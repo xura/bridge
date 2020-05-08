@@ -1,18 +1,21 @@
 import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
 import base, { BuildConfiguration } from './build';
 
 export default (buildConfig: BuildConfiguration): void => {
+    webpack(base(buildConfig)).watch({
+        aggregateTimeout: 300,
+        poll: undefined
+    }, (err, stats) => {
+        if (err || stats.hasErrors()) {
+            const errors =
+                stats.hasErrors()
+                && stats.compilation.errors.map(e => e.message)
 
-    const wdsConfig = {
-        headers: {
-            "Access-Control-Allow-Origin": "*"
+            console.log(JSON.stringify(
+                (err && [err.toString()]) || errors)
+            )
+        } else {
+            console.log(JSON.stringify(null));
         }
-    };
-
-    new WebpackDevServer(
-        webpack(base(buildConfig)),
-        wdsConfig
-    ).listen(Number(process.argv[2]));;
-
+    });
 };
