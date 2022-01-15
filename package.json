@@ -59,7 +59,7 @@
     "ky": "^0.16.2",
     "reflect-metadata": "^0.1.13",
     "serve": "^11.3.0",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "single-spa": "^4.4.2",
     "single-spa-html": "^1.1.1",
     "ts-loader": "^6.2.1",
