@@ -43,7 +43,7 @@
     "@webcomponents/webcomponentsjs": "^2.4.1",
     "@xura/data": "https://github.com/xura/data.git#0.0.3",
     "@xura/emporium": "https://github.com/xura/emporium.git#0.0.14",
-    "async": "^3.1.0",
+    "async": "^3.2.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.2.2",
